@@ -1,13 +1,14 @@
-// 1- Tener la variable react en scope
-import React from "react";
+import ReactDOM from "react-dom/client";
 
-// 2- Tener la variable reactDOM en scope
-import ReactDOM from "react-dom";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// 3- tener la variable App en scope
-function App() {
-    return <h1>Hola mundo</h1>;
-}
+const App = () => {
+    return (
+        <div>
+            <h1>Hola mundo</h1>
+            <h2>Pepega Poggers 😎🤙🏻</h2>
+        </div>
+    );
+};
 
-// 4- Hacer render de la app
-ReactDOM.render(<App />, document.getElementById("root"));
+root.render(<App />);
