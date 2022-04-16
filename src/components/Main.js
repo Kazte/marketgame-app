@@ -1,5 +1,13 @@
-const Main = () => {
-    return <div>Main</div>;
+import ItemListContainer from "./ItemListContainer";
+
+const Main = (props) => {
+    const name = "Franco";
+
+    return (
+        <>
+            <ItemListContainer greeting={name} />
+        </>
+    );
 };
 
 export default Main;

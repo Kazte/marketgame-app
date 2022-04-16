@@ -1,10 +1,12 @@
-import Nav from "./Nav";
+import NavBar from "./NavBar";
 
 const Header = () => {
     return (
         <header className="header">
-            <h1 className="header__title">E-Commerce</h1>
-            <Nav />
+            <h1 className="header__title">
+                <a href="#">Market Game</a>
+            </h1>
+            <NavBar name="Franco" footer={false} />
         </header>
     );
 };

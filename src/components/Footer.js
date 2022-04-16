@@ -1,10 +1,10 @@
-import Nav from "./Nav";
+import NavBar from "./NavBar";
 
 const Footer = () => {
     return (
         <footer className="footer">
-            <em>Copyright</em>
-            <Nav />
+            <em>Copyright©</em>
+            <NavBar name="Franco" footer={true} />
         </footer>
     );
 };
