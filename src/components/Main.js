@@ -1,3 +1,4 @@
+import Container from "./Container";
 import ItemListContainer from "./ItemListContainer";
 
 const Main = (props) => {
@@ -6,6 +7,7 @@ const Main = (props) => {
     return (
         <>
             <ItemListContainer greeting={name} />
+            <Container />
         </>
     );
 };
