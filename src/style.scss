@@ -115,8 +115,19 @@ a {
     }
 }
 
-.itemListContainer {
-    background-color: red;
+.itemListCointainer {
+    width: 95%;
+    margin: 10px auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 // Item Card
+
+.itemCard {
+    display: flex;
+    flex-flow: column;
+    max-width: 250px;
+}

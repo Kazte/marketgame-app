@@ -12,13 +12,17 @@ const ItemCount = ({ itemStock }) => {
     };
 
     return (
-        <>
-            <button onClick={decrementItemCount}>-</button>
+        <div className="itemCount">
+            <span className="itemCount__minus" onClick={decrementItemCount}>
+                -
+            </span>
 
-            <span>{itemCount}</span>
+            <span className="itemCount__text">{itemCount}</span>
 
-            <button onClick={incrementItemCount}>+</button>
-        </>
+            <span className="itemCount__plus" onClick={incrementItemCount}>
+                +
+            </span>
+        </div>
     );
 };
 

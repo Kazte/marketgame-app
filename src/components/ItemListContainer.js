@@ -16,6 +16,10 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <div className="itemListCointainer">
             <ItemCard item={items.games[0]} />
+            <ItemCard item={items.games[0]} />
+            <ItemCard item={items.games[0]} />
+            <ItemCard item={items.games[0]} />
+            <ItemCard item={items.games[0]} />
         </div>
     );
 };
