@@ -1,8 +1,8 @@
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Header from "./components/Header"
+import Main from "./components/Main"
+import Footer from "./components/Footer"
 
-import "./style.scss";
+import "./style.scss"
 
 const App = () => {
     return (
@@ -14,7 +14,7 @@ const App = () => {
             </Main>
             <Footer />
         </>
-    );
-};
+    )
+}
 
-export default App;
+export default App

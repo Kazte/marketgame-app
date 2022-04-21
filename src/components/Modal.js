@@ -3,7 +3,7 @@ const Modal = ({ modalText, modalAccept, modalCancel }) => {
         <div className="modal">
             <p>{modalText}</p>
         </div>
-    );
-};
+    )
+}
 
-export default Modal;
+export default Modal

@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBar from "./NavBar"
 
 const Footer = () => {
     return (
@@ -6,7 +6,7 @@ const Footer = () => {
             <em>Copyright©</em>
             <NavBar name="Franco" footer={true} />
         </footer>
-    );
-};
+    )
+}
 
-export default Footer;
+export default Footer

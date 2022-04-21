@@ -1,4 +1,4 @@
-import CartWidget from "./CartWidget";
+import CartWidget from "./CartWidget"
 
 const NavBar = (props) => {
     if (props.footer) {
@@ -14,7 +14,7 @@ const NavBar = (props) => {
                     Item 3
                 </a>
             </nav>
-        );
+        )
     } else {
         return (
             <nav className="nav">
@@ -30,8 +30,8 @@ const NavBar = (props) => {
                 </a>
                 <CartWidget />
             </nav>
-        );
+        )
     }
-};
+}
 
-export default NavBar;
+export default NavBar

@@ -1,25 +1,25 @@
-import { useState } from "react";
-import Modal from "./Modal";
+import { useState } from "react"
+import Modal from "./Modal"
 
 const ItemCount = ({ itemStock, onAdd }) => {
-    const [itemCount, setItemCount] = useState(0);
+    const [itemCount, setItemCount] = useState(0)
 
-    const [confirmed, setConfirmed] = useState(false);
+    const [confirmed, setConfirmed] = useState(false)
 
     const incrementItemCount = () => {
-        if (itemCount < itemStock) setItemCount(itemCount + 1);
-    };
+        if (itemCount < itemStock) setItemCount(itemCount + 1)
+    }
 
     const decrementItemCount = () => {
-        if (itemCount > 0) setItemCount(itemCount - 1);
-    };
+        if (itemCount > 0) setItemCount(itemCount - 1)
+    }
 
     const confirm = () => {
-        if (itemCount <= 0) return;
+        if (itemCount <= 0) return
 
-        onAdd(itemCount);
-        setConfirmed(true);
-    };
+        onAdd(itemCount)
+        setConfirmed(true)
+    }
 
     if (!confirmed) {
         return (
@@ -39,7 +39,7 @@ const ItemCount = ({ itemStock, onAdd }) => {
                     shopping_cart
                 </span>
             </div>
-        );
+        )
     } else {
         return (
             <div className="itemCount">
@@ -60,8 +60,8 @@ const ItemCount = ({ itemStock, onAdd }) => {
 
                 <Modal modalText={`Added ${itemCount} items`} />
             </div>
-        );
+        )
     }
-};
+}
 
-export default ItemCount;
+export default ItemCount

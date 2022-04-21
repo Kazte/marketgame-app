@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import ItemCount from "./ItemCount";
+import { useEffect } from "react"
+import ItemCount from "./ItemCount"
 
 const ItemCard = ({ item }) => {
     const onAdd = (itemCount) => {
-        console.log(itemCount);
-    };
+        console.log(itemCount)
+    }
 
     return (
         <div className="itemCard">
@@ -19,7 +19,7 @@ const ItemCard = ({ item }) => {
                 <ItemCount className="itemCard__footer__counter" itemStock={item.stock} onAdd={onAdd} />
             </footer>
         </div>
-    );
-};
+    )
+}
 
-export default ItemCard;
+export default ItemCard

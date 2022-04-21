@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBar from "./NavBar"
 
 const Header = () => {
     return (
@@ -8,7 +8,7 @@ const Header = () => {
             </h1>
             <NavBar name="Franco" footer={false} />
         </header>
-    );
-};
+    )
+}
 
-export default Header;
+export default Header

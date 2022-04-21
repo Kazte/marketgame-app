@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-import ItemList from "./ItemList";
+import ItemList from "./ItemList"
 
 const ItemListContainer = () => {
     const games = {
@@ -30,19 +30,19 @@ const ItemListContainer = () => {
                 stock: 10,
             },
         ],
-    };
+    }
 
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState([])
 
     useEffect(() => {
-        console.log("Pido productos");
+        console.log("Pido productos")
 
         setTimeout(() => {
-            setItems(games.games);
-        }, 2000);
-    }, []);
+            setItems(games.games)
+        }, 2000)
+    }, [])
 
-    return <ItemList items={items} />;
-};
+    return <ItemList items={items} />
+}
 
-export default ItemListContainer;
+export default ItemListContainer
