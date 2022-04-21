@@ -6,8 +6,7 @@ const Main = (props) => {
 
     return (
         <>
-            <ItemListContainer greeting={name} />
-            <Container />
+            <ItemListContainer />
         </>
     );
 };

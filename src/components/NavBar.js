@@ -1,25 +1,33 @@
 import CartWidget from "./CartWidget";
 
 const NavBar = (props) => {
-    const menuList = ["Item 1", "Item 2", "Item 3"];
-
-    let menuItems = [];
-
-    menuList.forEach((item) => {
-        menuItems.push(
-            <a className="nav__link" href="#">
-                {item}
-            </a>
-        );
-    });
-
     if (props.footer) {
-        return <nav className="nav">{menuItems}</nav>;
+        return (
+            <nav className="nav">
+                <a className="nav__link" href="#">
+                    Item 1
+                </a>
+                <a className="nav__link" href="#">
+                    Item 2
+                </a>
+                <a className="nav__link" href="#">
+                    Item 3
+                </a>
+            </nav>
+        );
     } else {
         return (
             <nav className="nav">
                 <a href="">{props.name}</a>
-                {menuItems}
+                <a className="nav__link" href="#">
+                    Item 1
+                </a>
+                <a className="nav__link" href="#">
+                    Item 2
+                </a>
+                <a className="nav__link" href="#">
+                    Item 3
+                </a>
                 <CartWidget />
             </nav>
         );

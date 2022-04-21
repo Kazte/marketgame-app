@@ -1,7 +1,10 @@
 import { useState } from "react";
+import Modal from "./Modal";
 
-const ItemCount = ({ itemStock }) => {
+const ItemCount = ({ itemStock, onAdd }) => {
     const [itemCount, setItemCount] = useState(0);
+
+    const [confirmed, setConfirmed] = useState(false);
 
     const incrementItemCount = () => {
         if (itemCount < itemStock) setItemCount(itemCount + 1);
@@ -11,19 +14,54 @@ const ItemCount = ({ itemStock }) => {
         if (itemCount > 0) setItemCount(itemCount - 1);
     };
 
-    return (
-        <div className="itemCount">
-            <span className="itemCount__minus" onClick={decrementItemCount}>
-                -
-            </span>
+    const confirm = () => {
+        if (itemCount <= 0) return;
 
-            <span className="itemCount__text">{itemCount}</span>
+        onAdd(itemCount);
+        setConfirmed(true);
+    };
 
-            <span className="itemCount__plus" onClick={incrementItemCount}>
-                +
-            </span>
-        </div>
-    );
+    if (!confirmed) {
+        return (
+            <div className="itemCount">
+                <span className="itemCount__counter">
+                    <span className="material-icons icon--black button itemCount__minus" onClick={decrementItemCount}>
+                        remove
+                    </span>
+
+                    <span className="itemCount__text">{itemCount}</span>
+                    <span onClick={incrementItemCount} className="material-icons icon--black button itemCount__plus">
+                        add
+                    </span>
+                </span>
+
+                <span className="button material-icons icon--black" onClick={confirm}>
+                    shopping_cart
+                </span>
+            </div>
+        );
+    } else {
+        return (
+            <div className="itemCount">
+                <span className="itemCount__counter">
+                    <span className="material-icons icon--black button itemCount__minus" onClick={decrementItemCount}>
+                        remove
+                    </span>
+
+                    <span className="itemCount__text">{itemCount}</span>
+                    <span onClick={incrementItemCount} className="material-icons icon--black button itemCount__plus">
+                        add
+                    </span>
+                </span>
+
+                <span className=" button material-icons icon--black" onClick={confirm}>
+                    shopping_cart
+                </span>
+
+                <Modal modalText={`Added ${itemCount} items`} />
+            </div>
+        );
+    }
 };
 
 export default ItemCount;
