@@ -1,9 +1,6 @@
-import Container from "./Container"
 import ItemListContainer from "./ItemListContainer"
 
-const Main = (props) => {
-    const name = "Franco"
-
+const Main = () => {
     return (
         <>
             <ItemListContainer />

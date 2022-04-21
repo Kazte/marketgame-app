@@ -1,4 +1,4 @@
-const Modal = ({ modalText, modalAccept, modalCancel }) => {
+const Modal = ({ modalText }) => {
     return (
         <div className="modal">
             <p>{modalText}</p>
