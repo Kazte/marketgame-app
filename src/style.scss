@@ -132,12 +132,10 @@ a {
 .itemCard {
     display: flex;
     flex-flow: column;
-    // flex-basis: 200px;
     flex-grow: initial;
 
     max-width: 300px;
-    max-height: 310px;
-    height: 100%;
+    max-height: 500px;
 
     background-color: $secondary-light;
     color: $secondary-text;
@@ -148,10 +146,12 @@ a {
     }
 
     &__main {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        &__description {
-            overflow: hidden;
+        display: flex;
+        flex-flow: column;
+
+        & img {
+            max-width: 100%;
+            max-height: 100%;
         }
     }
 
@@ -174,8 +174,6 @@ a {
     align-items: center;
     gap: 3px;
 
-    background-color: $secondary-dark;
-
     &__minus,
     &__plus {
         padding: 5px;
@@ -191,8 +189,11 @@ a {
 
     & span {
         text-align: center;
-        margin: 5px;
         user-select: none;
+        margin: auto;
+        padding: 5px;
+        width: 100%;
+        background-color: $secondary-dark;
     }
 }
 
@@ -207,7 +208,16 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: $secondary;
-    box-shadow: 2px 2px 2px 1000px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 1000px rgba(0, 0, 0, 0.5);
     padding: 1rem;
     border-radius: 3px;
+    border: 3px solid $primary;
+    &__header,
+    &__footer {
+        padding: 10px;
+    }
+
+    &__header {
+        border-bottom: $primary-dark;
+    }
 }

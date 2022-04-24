@@ -1,9 +1,19 @@
-const Modal = ({ modalText }) => {
-    return (
-        <div className="modal">
-            <p>{modalText}</p>
-        </div>
-    )
-}
+const Modal = ({ modalTitle, modalText, onClose, show }) => {
+    if (!show) {
+        return null;
+    } else {
+        setTimeout(() => {
+            onClose();
+        }, 2000);
 
-export default Modal
+        return (
+            <div className="modal">
+                {modalTitle && <header className="modal__header">{modalTitle}</header>}
+                {modalText && <main className="modal__body">{modalText}</main>}
+                {/* <footer className="modal__footer"><button onClick={onClose}>Close</button></footer> */}
+            </div>
+        );
+    }
+};
+
+export default Modal;
