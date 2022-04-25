@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import ItemList from "./ItemList";
+import Loader from "./Loader";
 
 const ItemListContainer = () => {
     const games = {
@@ -62,7 +63,11 @@ const ItemListContainer = () => {
         }, 2000);
     }, []);
 
-    return <ItemList items={items} />;
+    if (items.length == 0) {
+        return <Loader />;
+    } else {
+        return <ItemList items={items} />;
+    }
 };
 
 export default ItemListContainer;
