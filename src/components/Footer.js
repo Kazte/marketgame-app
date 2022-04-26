@@ -1,12 +1,12 @@
-import NavBar from "./NavBar"
+import NavBar from "./NavBar";
 
 const Footer = () => {
     return (
         <footer className="footer">
-            <em>Copyright©</em>
+            <em>Copyright ©</em>
             <NavBar name="Franco" footer={true} />
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

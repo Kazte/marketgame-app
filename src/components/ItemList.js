@@ -1,4 +1,4 @@
-import ItemCard from "./ItemCard"
+import ItemCard from "./ItemCard";
 
 const ItemList = ({ items }) => {
     return (
@@ -7,7 +7,7 @@ const ItemList = ({ items }) => {
                 <ItemCard key={i.id} item={i} />
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default ItemList
+export default ItemList;

@@ -6,11 +6,15 @@ const ItemCard = ({ item }) => {
     };
 
     return (
-        <div className="itemCard">
+        <div
+            className="itemCard"
+            onClick={() => {
+                console.log("Open " + item.name);
+            }}
+        >
             <header className="itemCard__header">
                 <h2>{item.name}</h2>
             </header>
-            <hr />
             <main className="itemCard__main">
                 <div>
                     <img src={item.cover} alt="" />
@@ -21,7 +25,7 @@ const ItemCard = ({ item }) => {
                 </div>
             </main>
             <footer className="itemCard__footer">
-                <ItemCount className="itemCard__footer__counter" itemStock={item.stock} onAdd={onAdd} />
+                <p className="itemCard__footer__price">${item.price}</p>
             </footer>
         </div>
     );
