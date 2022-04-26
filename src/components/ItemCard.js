@@ -12,17 +12,17 @@ const ItemCard = ({ item }) => {
                 console.log("Open " + item.name);
             }}
         >
-            <header className="itemCard__header">
-                <h2>{item.name}</h2>
-            </header>
+            {/* <header className="itemCard__header">
+                    <h2>{item.name}</h2>
+                </header> */}
             <main className="itemCard__main">
                 <div>
                     <img src={item.cover} alt="" />
                 </div>
 
-                <div>
+                {/* <div>
                     <p className="itemCard__main__description">{item.description}</p>
-                </div>
+                </div> */}
             </main>
             <footer className="itemCard__footer">
                 <p className="itemCard__footer__price">${item.price}</p>

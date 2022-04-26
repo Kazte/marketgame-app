@@ -1,4 +1,5 @@
 import Aside from "./Aside";
+import ItemDetailContainer from "./ItemDetailContainer";
 import ItemListContainer from "./ItemListContainer";
 
 const Main = () => {
@@ -8,6 +9,9 @@ const Main = () => {
             <section className="main__games">
                 <Aside />
                 <ItemListContainer />
+            </section>
+            <section>
+                <ItemDetailContainer />
             </section>
         </main>
     );
