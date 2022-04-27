@@ -2,10 +2,16 @@ const ItemDetail = ({ item }) => {
     if (item)
     return (
         <div className="itemDetail">
-            <header>{}</header>
+            <header>{item.name}</header>
             <main>
                 <section>
-                    <img src="" alt="" />
+                    <div>
+                        <img src={item.cover} alt="" />
+                    </div>
+
+                    <div>
+                        <p>{item.description}</p>
+                    </div>
                 </section>
             </main>
         </div>

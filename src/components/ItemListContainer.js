@@ -11,7 +11,6 @@ const ItemListContainer = () => {
             fetch("data.json")
                 .then((res) => res.json())
                 .then((json) => {
-                    console.log(json);
                     setItems(json.games);
                 });
         }, 2000);
