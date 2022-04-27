@@ -1,4 +1,5 @@
 const ItemDetail = ({ item }) => {
+    if (item)
     return (
         <div className="itemDetail">
             <header>{}</header>

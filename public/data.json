@@ -48,6 +48,13 @@
             "description": "Foxhole is a massively multiplayer game where you will work with hundreds of players to shape the outcome of a persistent online war. Every individual soldier is a player that contributes to the war effort through logistics, base building, reconnaissance, combat, and more.",
             "price": 15,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/505460/header.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Dune: Spice Wars",
+            "description": "A 4X real-time strategy game from the developers of the critically acclaimed Northgard. Set in Frank Herbert’s groundbreaking Dune universe, you must lead your faction and battle for control and dominance over the harsh desert planet of Arrakis.",
+            "price": 15,
+            "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1605220/header.jpg"
         }
     ]
 }
