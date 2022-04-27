@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
+import Loader from "./Loader";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState(null);
@@ -10,13 +11,17 @@ const ItemDetailContainer = () => {
                 .then((res) => res.json())
                 .then((json) => {
                     const game = json.games[1];
-
+                    console.log(game);
                     setItem(game);
                 });
-        }, 2000);
+        }, 5000);
     }, []);
 
-    return <ItemDetail item={item} />;
+    if (item === null) {
+        return <Loader />;
+    } else {
+        return <ItemDetail item={item} />;
+    }
 };
 
 export default ItemDetailContainer;
