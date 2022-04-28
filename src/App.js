@@ -11,10 +11,7 @@ const App = () => {
         <>
             <BrowserRouter>
                 <Header />
-                <Main>
-                    <p>Hello World</p>
-                    <p>Hello World Second</p>
-                </Main>
+                <Main />
                 <Footer />
             </BrowserRouter>
         </>
