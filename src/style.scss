@@ -129,6 +129,14 @@ a {
     align-items: center;
 }
 
+.nav__link {
+    border: 1px transparent;
+}
+
+.active {
+    border-bottom: $primary-text solid 1px;
+}
+
 .cartWidget {
     &__number {
         display: inline-block;

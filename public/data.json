@@ -56,5 +56,6 @@
             "price": 15,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1605220/header.jpg"
         }
-    ]
+    ],
+    "categories": [{ "id": 0, "name": "" }]
 }

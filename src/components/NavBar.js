@@ -1,37 +1,39 @@
-import CartWidget from "./CartWidget"
+import CartWidget from "./CartWidget";
+
+import { NavLink, Link } from "react-router-dom";
 
 const NavBar = (props) => {
     if (props.footer) {
         return (
             <nav className="nav">
-                <a className="nav__link" href="#">
-                    Item 1
-                </a>
-                <a className="nav__link" href="#">
-                    Item 2
-                </a>
-                <a className="nav__link" href="#">
-                    Item 3
-                </a>
+                <Link className="nav__link" to="/">
+                    Home
+                </Link>
+                <Link className="nav__link" to="/categories">
+                    Categories
+                </Link>
+                <Link className="nav__link" to="/myshopping">
+                    My Shopping
+                </Link>
             </nav>
-        )
+        );
     } else {
         return (
             <nav className="nav">
-                <a href="">{props.name}</a>
-                <a className="nav__link" href="#">
-                    Item 1
-                </a>
-                <a className="nav__link" href="#">
-                    Item 2
-                </a>
-                <a className="nav__link" href="#">
-                    Item 3
-                </a>
+                <NavLink to={`/${props.name}`}>{props.name}</NavLink>
+                <NavLink className="nav__link" to="/">
+                    Home
+                </NavLink>
+                <NavLink className="nav__link" to="/categories">
+                    Categories
+                </NavLink>
+                <NavLink className="nav__link" to="/myshopping">
+                    My Shopping
+                </NavLink>
                 <CartWidget />
             </nav>
-        )
+        );
     }
-}
+};
 
-export default NavBar
+export default NavBar;

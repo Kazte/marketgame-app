@@ -13,7 +13,7 @@ const ItemListContainer = () => {
                 .then((json) => {
                     setItems(json.games);
                 });
-        }, 2000);
+        }, 200);
     }, []);
 
     if (items.length === 0) {

@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import ItemCount from "./ItemCount";
 
 const ItemCard = ({ item }) => {
@@ -5,13 +6,15 @@ const ItemCard = ({ item }) => {
         console.log(itemCount);
     };
 
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/product/${item.id}`);
+    };
+
     return (
-        <div
-            className="itemCard"
-            onClick={() => {
-                console.log("Open " + item.name);
-            }}
-        >
+        // <Link to={`/product/${item.id}`}>
+        <div className="itemCard" onClick={handleClick}>
             {/* <header className="itemCard__header">
                     <h2>{item.name}</h2>
                 </header> */}
@@ -28,6 +31,7 @@ const ItemCard = ({ item }) => {
                 <p className="itemCard__footer__price">${item.price}</p>
             </footer>
         </div>
+        // </Link>
     );
 };
 
