@@ -13,7 +13,7 @@ const CategoriesListContainer = () => {
                 .then((json) => {
                     setCategories(json.categories);
                 });
-        }, 1000);
+        }, 500);
     }, []);
     if (categories.length === 0) {
         return <Loader />;
