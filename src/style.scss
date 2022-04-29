@@ -358,13 +358,15 @@ a {
 }
 
 .categoriesList {
-    margin: auto 5px 5px 5px;
+    margin: auto 0px 5px 0px;
     font-size: 1rem;
     font-weight: 600;
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
     gap: 8px;
     &__item {
+        margin-top: 8px;
         &__link {
             padding: 5px 8px;
             color: $secondary-text;
