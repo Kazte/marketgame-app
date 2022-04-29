@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AddCartButton from "./AddCartButton";
+import CategoriesList from "./CategoriesList";
 
 const ItemDetail = ({ item, categories }) => {
     if (item)
@@ -17,15 +18,7 @@ const ItemDetail = ({ item, categories }) => {
                         <div className="itemDetail__main__description">
                             <div>{item.description}</div>
                             <div className="itemDetail__main__description__categoriesList">
-                                {categories.map((c) => {
-                                    return (
-                                        <div key={c.id} className="itemDetail__main__description__categoriesList__item">
-                                            <Link className="itemDetail__main__description__categoriesList__item__link" to={`/products/${c.id}`}>
-                                                {c.name}
-                                            </Link>
-                                        </div>
-                                    );
-                                })}
+                                <CategoriesList categories={categories} />
                             </div>
                         </div>
                     </section>

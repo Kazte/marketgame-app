@@ -3,7 +3,7 @@ const CartWidget = () => {
     return (
         <Link to="/cart">
             <div className="cartWidget">
-                <span className="material-icons icon--white">
+                <span className="material-icons icon--black">
                     shopping_cart
                     <span className="cartWidget__number">3</span>
                 </span>

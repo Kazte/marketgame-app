@@ -3,10 +3,13 @@ import ItemListContainer from "./ItemListContainer";
 
 const Home = () => {
     return (
-        <section className="main__games">
-            <Aside />
-            <ItemListContainer />
-        </section>
+        <>
+            <h1 className="main__title">Games</h1>
+            <section className="main__games">
+                <Aside />
+                <ItemListContainer />
+            </section>
+        </>
     );
 };
 

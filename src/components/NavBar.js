@@ -29,7 +29,7 @@ const NavBar = (props) => {
                 <NavLink className="nav__link" to="/myshopping">
                     My Shopping
                 </NavLink>
-                <NavLink className="nav__link" to={`/user/${props.name}`}>
+                <NavLink className="nav__link" to={"/user"}>
                     {props.name}
                 </NavLink>
                 <CartWidget />
