@@ -7,6 +7,8 @@ $accenture: #ff2036;
 $accenture-light: rgb(255, 79, 79);
 $background: whitesmoke; // rgb(138, 138, 138);
 
+$mediaQuery-phone: 688px;
+
 * {
     padding: 0;
     margin: 0;
@@ -50,6 +52,9 @@ a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
     nav {
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
         a {
             margin-left: 1rem;
         }
@@ -58,6 +63,9 @@ a {
 
 #root > footer {
     nav {
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
         a {
             margin-left: 1rem;
             color: $secondary-text;
@@ -108,6 +116,10 @@ a {
                 background-color: $accenture;
             }
         }
+    }
+
+    @media screen and (max-width: $mediaQuery-phone) {
+        display: none;
     }
 }
 
@@ -180,10 +192,14 @@ a {
     padding: 5px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 8px;
     justify-content: center;
     align-content: start;
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }
 
 // Item Card
@@ -196,7 +212,7 @@ a {
     cursor: pointer;
 
     max-width: 300px;
-    max-height: 450px;
+    max-height: 300px;
     margin: auto;
 
     // border-radius: 5px;
@@ -204,6 +220,12 @@ a {
 
     background-color: $primary-light;
     color: $primary-text;
+
+    @media screen and (max-width: 768px) {
+        max-width: 150px;
+        max-height: 450px;
+        margin: auto;
+    }
 
     &__header,
     &__main,
@@ -243,8 +265,7 @@ a {
         background-color: $primary-dark;
 
         &__price {
-            text-align: right;
-            width: 100%;
+            text-align: center;
         }
     }
 
@@ -397,7 +418,9 @@ a {
         display: flex;
         flex-flow: column;
         gap: 16px;
-        width: 940px;
+        // width: 940px;
+        max-width: 940px;
+        min-width: 700px;
         margin: 10px auto;
     }
     &__main {
@@ -418,6 +441,9 @@ a {
             &__categoriesList {
                 margin-top: auto;
             }
+        }
+
+        &__cover {
         }
     }
 
