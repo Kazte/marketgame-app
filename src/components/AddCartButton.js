@@ -1,7 +1,9 @@
-const AddCartButton = () => {
+const AddCartButton = ({ addToCart }) => {
     return (
         <div className="addCart">
-            <button className="addCart__btn">Add to Cart</button>
+            <button onClick={addToCart} className="addCart__btn">
+                Add to Cart
+            </button>
         </div>
     );
 };

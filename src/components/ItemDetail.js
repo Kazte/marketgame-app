@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
 import AddCartButton from "./AddCartButton";
 import CategoriesList from "./CategoriesList";
+import toast from "react-hot-toast";
 
 const ItemDetail = ({ item, categories }) => {
+    const addToCart = () => toast(`${item.name} added to cart!`);
+
     if (item)
         return (
             <div className="itemDetail">
@@ -30,7 +32,7 @@ const ItemDetail = ({ item, categories }) => {
                         </section>
                         <section className="itemDetail__footer__buySection">
                             ${item.price}
-                            <AddCartButton />
+                            <AddCartButton addToCart={addToCart} />
                         </section>
                     </div>
                 </footer>
