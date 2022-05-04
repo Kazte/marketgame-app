@@ -6,8 +6,6 @@ const ItemCount = ({ itemStock, onAdd }) => {
 
     const [confirmed, setConfirmed] = useState(false);
 
-    const [showModal, setShowModal] = useState(false);
-
     const incrementItemCount = () => {
         if (itemCount < itemStock) setItemCount(itemCount + 1);
     };
@@ -21,7 +19,6 @@ const ItemCount = ({ itemStock, onAdd }) => {
 
         onAdd(itemCount);
         setConfirmed(true);
-        setShowModal(true);
     };
 
     return (
@@ -39,10 +36,9 @@ const ItemCount = ({ itemStock, onAdd }) => {
                 </span>
             </span>
 
-            <span className="button material-icons icon--black" onClick={confirm}>
+            <span className="itemCount__cartButton button material-icons icon--black" onClick={confirm}>
                 shopping_cart
             </span>
-            <Modal show={showModal} onClose={() => setShowModal(false)} modalText={`Added ${itemCount} items`} />
         </div>
     );
 };

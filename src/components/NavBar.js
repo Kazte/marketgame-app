@@ -1,6 +1,7 @@
 import CartWidget from "./CartWidget";
 
 import { NavLink, Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const NavBar = (props) => {
     if (props.footer) {
@@ -20,6 +21,8 @@ const NavBar = (props) => {
     } else {
         return (
             <nav className="nav">
+                <SearchBar />
+
                 <NavLink className="nav__link" to="/">
                     Home
                 </NavLink>

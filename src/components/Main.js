@@ -19,6 +19,7 @@ const Main = () => {
                 <Route path="/cart" element={<CartShop />} />
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/user" element={<User />} />
+                <Route path="/:searchText" element={<ItemListContainer />} />
             </Routes>
         </main>
     );

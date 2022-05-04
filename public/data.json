@@ -4,65 +4,100 @@
             "id": 0,
             "name": "Dead by Daylight",
             "description": "Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught and killed.",
-            "price": 15,
+            "price": 44,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/381210/header.jpg",
-            "categories": [0, 3, 1, 7, 8]
+            "categories": [0, 3, 1, 7, 8],
+            "stock": 12
         },
         {
             "id": 1,
             "name": "Forgive Me Father",
             "description": "Forgive Me Father is a dark retro horror FPS set in a comic book style world inspired by the novels of H.P. Lovecraft. As the only one left with full senses, you begin a journey in search of answers and relief. How long can you last.",
-            "price": 15,
+            "price": 18,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1590910/header.jpg",
-            "categories": [2, 3, 7]
+            "categories": [2, 3, 7],
+            "stock": 17
         },
         {
             "id": 2,
             "name": "ULTRAKILL",
             "description": "ULTRAKILL is a fast-paced ultraviolent retro FPS combining the skill-based style scoring from character action games with unadulterated carnage inspired by the best shooters of the '90s. Rip apart your foes with varied destructive weapons and shower in their blood to regain your health.",
-            "price": 15,
+            "price": 37,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1229490/header.jpg",
-            "categories": [2, 3]
+            "categories": [2, 3],
+            "stock": 2
         },
         {
             "id": 3,
             "name": "ELDEN RING",
             "description": "THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
-            "price": 15,
+            "price": 25,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg",
-            "categories": [3, 4, 5]
+            "categories": [3, 4, 5],
+            "stock": 14
         },
         {
             "id": 4,
             "name": "For The King",
             "description": "For The King is a strategic RPG that blends tabletop and roguelike elements in a challenging adventure that spans the realms. Set off on a single player experience or play cooperatively both online and locally.",
-            "price": 15,
+            "price": 45,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/527230/header.jpg",
-            "categories": [0, 3, 4, 6, 10]
+            "categories": [0, 3, 4, 6, 10],
+            "stock": 5
         },
         {
             "id": 5,
             "name": "Hunt: Showdown",
             "description": "Hunt: Showdown is a thrilling, high-stakes PvPvE first-person shooter. Take down nightmarish monsters, as you compete for the bounties that will bring you glory, gear, and gold in this unforgiving – and unforgettable - online multiplayer experience.",
-            "price": 15,
+            "price": 32,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/594650/header.jpg",
-            "categories": [0, 1, 2, 3, 6, 7, 8]
+            "categories": [0, 1, 2, 3, 6, 7, 8],
+            "stock": 6
         },
         {
             "id": 6,
             "name": "Foxhole",
             "description": "Foxhole is a massively multiplayer game where you will work with hundreds of players to shape the outcome of a persistent online war. Every individual soldier is a player that contributes to the war effort through logistics, base building, reconnaissance, combat, and more.",
-            "price": 15,
+            "price": 40,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/505460/header.jpg",
-            "categories": [0, 6, 10]
+            "categories": [0, 6, 10],
+            "stock": 14
         },
         {
             "id": 7,
             "name": "Dune: Spice Wars",
             "description": "A 4X real-time strategy game from the developers of the critically acclaimed Northgard. Set in Frank Herbert’s groundbreaking Dune universe, you must lead your faction and battle for control and dominance over the harsh desert planet of Arrakis.",
-            "price": 15,
+            "price": 9,
             "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1605220/header.jpg",
-            "categories": [3, 4, 9]
+            "categories": [3, 4, 9],
+            "stock": 11
+        },
+        {
+            "id": 8,
+            "name": "Rogue Legacy 2",
+            "description": "Rogue Legacy 2 is what you'd get if you mashed Rogue Legacy and a sequel together. Every time you die, your children will succeed you, and each child is unique. Your daughter might be a Colourblind Archer, and your son could be a Pacifistic Chef. Either way, one of them is getting conscripted.",
+            "price": 17,
+            "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1253920/header.jpg",
+            "categories": [11, 12, 13],
+            "stock": 15
+        },
+        {
+            "id": 9,
+            "name": "Hollow Knight",
+            "description": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
+            "price": 15,
+            "cover": "https://cdn.akamai.steamstatic.com/steam/apps/367520/header.jpg",
+            "categories": [4, 5, 11, 12, 13],
+            "stock": 1
+        },
+        {
+            "id": 10,
+            "name": "STAR WARS Jedi: Fallen Order™",
+            "description": "A galaxy-spanning adventure awaits in Star Wars Jedi: Fallen Order, a 3rd person action-adventure title from Respawn. An abandoned Padawan must complete his training, develop new powerful Force abilities, and master the art of the lightsaber - all while staying one step ahead of the Empire.",
+            "price": 17,
+            "cover": "https://cdn.akamai.steamstatic.com/steam/apps/1172380/header.jpg",
+            "categories": [3, 4, 5, 11, 13],
+            "stock": 14
         }
     ],
     "categories": [
@@ -76,6 +111,9 @@
         { "id": 7, "name": "Dark" },
         { "id": 8, "name": "Survival" },
         { "id": 9, "name": "4X" },
-        { "id": 10, "name": "Strategy" }
+        { "id": 10, "name": "Strategy" },
+        { "id": 11, "name": "Metroidvania" },
+        { "id": 12, "name": "2D" },
+        { "id": 13, "name": "Action" }
     ]
 }

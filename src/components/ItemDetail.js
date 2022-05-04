@@ -1,9 +1,10 @@
 import AddCartButton from "./AddCartButton";
 import CategoriesList from "./CategoriesList";
 import toast from "react-hot-toast";
+import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item, categories }) => {
-    const addToCart = () => toast(`${item.name} added to cart!`);
+    const addToCart = (stockAdded) => toast(`${item.name} (${stockAdded}) added to cart!`);
 
     if (item)
         return (
@@ -32,7 +33,8 @@ const ItemDetail = ({ item, categories }) => {
                         </section>
                         <section className="itemDetail__footer__buySection">
                             ${item.price}
-                            <AddCartButton addToCart={addToCart} />
+                            {/* <AddCartButton addToCart={addToCart} /> */}
+                            <ItemCount itemStock={item.stock} onAdd={addToCart} />
                         </section>
                     </div>
                 </footer>
