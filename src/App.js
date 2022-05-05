@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import CustomProvider from "./components/Context";
 import { Toaster } from "react-hot-toast";
 
 import { BrowserRouter } from "react-router-dom";
@@ -9,8 +10,8 @@ import "./style.scss";
 
 const App = () => {
     return (
-        <>
-            <BrowserRouter>
+        <BrowserRouter>
+            <CustomProvider>
                 <Header />
                 <Main />
                 <Footer />
@@ -37,8 +38,8 @@ const App = () => {
                         },
                     }}
                 />
-            </BrowserRouter>
-        </>
+            </CustomProvider>
+        </BrowserRouter>
     );
 };
 

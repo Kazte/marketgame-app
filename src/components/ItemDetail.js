@@ -1,10 +1,17 @@
-import AddCartButton from "./AddCartButton";
 import CategoriesList from "./CategoriesList";
 import toast from "react-hot-toast";
 import ItemCount from "./ItemCount";
+import { useContext } from "react";
+import { context } from "./Context";
 
 const ItemDetail = ({ item, categories }) => {
-    const addToCart = (stockAdded) => toast(`${item.name} (${stockAdded}) added to cart!`);
+    const addToCart = (stockAdded) => {
+        addProduct(item, stockAdded);
+
+        toast(`${item.name} (${stockAdded}) added to cart!`);
+    };
+
+    const { addProduct } = useContext(context);
 
     if (item)
         return (
