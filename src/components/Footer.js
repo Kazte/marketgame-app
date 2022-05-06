@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <em>Copyright ©</em>
-            <NavBar name="Franco" footer={true} />
+            <NavBar footer={true} />
         </footer>
     );
 };
