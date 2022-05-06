@@ -1,9 +1,7 @@
-import Presentational from "./Presentational"
+import Presentational from "./Presentational";
 
 const Container = () => {
-    // const users = ["Juan", "Pedro", "Maria", "Ana"]
+    return <Presentational />;
+};
 
-    return <Presentational />
-}
-
-export default Container
+export default Container;

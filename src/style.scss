@@ -50,15 +50,6 @@ a {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-    nav {
-        @media screen and (max-width: 768px) {
-            display: none;
-        }
-        & > a {
-            margin-left: 1rem;
-        }
-    }
 }
 
 #root > footer {
@@ -153,21 +144,90 @@ a {
 
 .nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
+    gap: 1rem;
 
-    border: transparent solid 2px;
+    &__checkbox {
+        display: none;
+        z-index: 9999;
 
-    .nav__link {
-        border: transparent solid 2px;
+        &_open,
+        &_close {
+            display: none;
+        }
 
-        &:hover {
-            border-bottom: $secondary-text solid 2px;
+        @media screen and (max-width: 768px) {
+            display: none;
+
+            &_open,
+            &_close {
+                display: inline;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                opacity: 100%;
+                background-color: #000000aa;
+                z-index: 99999;
+
+                span {
+                    // text-align: center;
+                    line-height: 40px;
+                    font-size: 2.5rem;
+                    color: $primary-text;
+                }
+            }
         }
     }
-    .active {
-        border-bottom: $secondary-text solid 2px;
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+
+        border: transparent solid 2px;
+        &__link {
+            border: transparent solid 2px;
+
+            &:hover {
+                border-bottom: $secondary-text solid 2px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            display: none;
+
+            .nav__checkbox:checked ~ & {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 100%;
+
+                background-color: black;
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                a {
+                    color: $primary-text;
+                    font-size: 3rem;
+                }
+
+                .active {
+                    border-bottom: $primary-text solid 2px;
+                }
+            }
+        }
+        & > a {
+            margin-left: 1rem;
+        }
+
+        .active {
+            border-bottom: $secondary-text solid 2px;
+        }
     }
 }
 
@@ -195,10 +255,9 @@ a {
     padding: 5px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 8px;
-    justify-content: center;
-    align-content: start;
+    align-content: flex-start;
 
     @media screen and (max-width: 768px) {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -233,7 +292,8 @@ a {
     &__header,
     &__main,
     &__footer {
-        padding: 10px;
+        padding: 5px;
+        font-size: 1.1rem;
     }
 
     &__main {
@@ -514,13 +574,8 @@ a {
         background-color: $primary-dark;
 
         & input[type="text"] {
-            flex: 1 1 auto;
+            flex: 1 1;
         }
-    }
-
-    &__wrapper:hover > &__input {
-        width: 200px;
-        padding: 0 10px;
     }
 
     &__button,
@@ -533,20 +588,24 @@ a {
     }
 
     &__button {
+        width: 50px;
+        height: 50px;
         span {
-            padding: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 2rem;
         }
     }
 
     &__input {
-        width: 0px;
-        border: none;
+        margin: 0px;
+        padding: 5px;
+        border: 0px;
+        background-color: $primary-dark;
+        color: $primary-text;
         outline: none;
-        padding: 0px;
         background: none;
         font-size: 1.1rem;
-        transition: width 0.2s ease-in-out;
-        line-height: 40px;
         color: $primary-text;
     }
 }

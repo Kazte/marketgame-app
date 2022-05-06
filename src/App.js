@@ -16,15 +16,10 @@ const App = () => {
                 <Main />
                 <Footer />
                 <Toaster
-                    containerStyle={
-                        {
-                            // bottom: 60,
-                        }
-                    }
                     toastOptions={{
                         duration: 2000,
                         className: "",
-                        position: "bottom-right",
+                        position: "center",
                         containerStyle: {
                             bottom: 40,
                         },
