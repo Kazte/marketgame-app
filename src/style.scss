@@ -23,7 +23,6 @@ body,
     color: $secondary-text;
     background-color: $background;
 }
-
 a {
     text-decoration: none;
     color: $secondary-text;
@@ -161,17 +160,15 @@ a {
             &_open,
             &_close {
                 display: inline;
-                position: fixed;
-                top: 10px;
-                right: 10px;
                 width: 40px;
                 height: 40px;
                 opacity: 100%;
+                margin: auto;
                 background-color: #000000aa;
-                z-index: 99999;
+                z-index: 9999999;
 
                 span {
-                    // text-align: center;
+                    text-align: center;
                     line-height: 40px;
                     font-size: 2.5rem;
                     color: $primary-text;
@@ -197,6 +194,7 @@ a {
 
         @media screen and (max-width: 768px) {
             display: none;
+            z-index: 5;
 
             .nav__checkbox:checked ~ & {
                 position: fixed;
@@ -211,6 +209,7 @@ a {
                 flex-flow: column wrap;
                 justify-content: center;
                 align-items: center;
+                gap: 0.6rem;
                 a {
                     color: $primary-text;
                     font-size: 3rem;
@@ -219,10 +218,17 @@ a {
                 .active {
                     border-bottom: $primary-text solid 2px;
                 }
+
+                ~ body,
+                ~ html {
+                    overflow: hidden;
+                }
             }
         }
+
         & > a {
-            margin-left: 1rem;
+            margin: 0 0.4rem;
+            text-align: center;
         }
 
         .active {
@@ -232,11 +238,15 @@ a {
 }
 
 .cartWidget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &__number {
-        display: inline-block;
-        padding: 4px 6px; /* pixel unit */
+        position: absolute;
+
+        padding: 7px 7px;
         border-radius: 50%;
-        font-size: 12px;
+        font-size: 0.7rem;
         text-align: center;
         font-weight: bold;
         background-color: $primary-light;
@@ -245,6 +255,13 @@ a {
 
     &:hover > .material-icons {
         color: $primary-dark;
+    }
+
+    @media screen and (max-width: 768px) {
+        color: $primary-text;
+        & .icon--black {
+            color: $primary-text;
+        }
     }
 }
 
@@ -260,7 +277,7 @@ a {
     align-content: flex-start;
 
     @media screen and (max-width: 768px) {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
 
@@ -437,7 +454,7 @@ a {
 }
 
 .categories {
-    width: 940px;
+    max-width: 940px;
     margin: 10px auto;
     display: flex;
     flex-flow: column;
@@ -455,10 +472,11 @@ a {
     margin: auto 0px 5px 0px;
     font-size: 1rem;
     font-weight: 600;
+
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
-    gap: 8px;
+    gap: 16px;
+
     &__item {
         margin-top: 8px;
         &__link {
@@ -491,9 +509,8 @@ a {
         display: flex;
         flex-flow: column;
         gap: 16px;
-        // width: 940px;
         max-width: 940px;
-        min-width: 700px;
+        min-width: 500px;
         margin: 10px auto;
     }
     &__main {
@@ -514,9 +531,6 @@ a {
             &__categoriesList {
                 margin-top: auto;
             }
-        }
-
-        &__cover {
         }
     }
 
@@ -545,6 +559,48 @@ a {
 
         &__title {
             font-size: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: $mediaQuery-phone) {
+        & main,
+        & header,
+        & footer {
+            display: flex;
+            flex-flow: column;
+            gap: 16px;
+            max-width: unset;
+            min-width: unset;
+            margin: 10px auto;
+        }
+
+        &__main {
+            flex-flow: column;
+
+            &__cover {
+                & img {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__footer {
+            flex-flow: column;
+            padding-top: 10px;
+            &__buySection {
+                display: flex;
+                flex-flow: column;
+                gap: 3rem;
+                justify-content: center;
+                align-items: center;
+                position: unset;
+                background-color: unset;
+                padding: 10px;
+                margin-top: 30px;
+                margin-bottom: 10px;
+                box-shadow: unset;
+                border-radius: 0;
+            }
         }
     }
 }
@@ -588,12 +644,15 @@ a {
     }
 
     &__button {
-        width: 50px;
-        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
         span {
             text-align: center;
-            line-height: 50px;
-            font-size: 2rem;
+            line-height: 40px;
+            font-size: 1.5rem;
         }
     }
 

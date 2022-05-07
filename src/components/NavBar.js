@@ -6,10 +6,16 @@ import { useState } from "react";
 
 const NavBar = (props) => {
     const [openMenu, setOpenMenu] = useState(false);
+    const [checkBox, setCheckBox] = useState();
 
     const handleOpenMenu = (e) => {
-        console.log(e.target.checked);
+        setCheckBox(e);
         setOpenMenu(e.target.checked);
+    };
+
+    const handleNavClick = () => {
+        setOpenMenu(false);
+        checkBox.target.checked = false;
     };
 
     if (props.footer) {
@@ -29,34 +35,38 @@ const NavBar = (props) => {
     } else {
         return (
             <nav className="nav">
-                <SearchBar />
-
                 <input onClick={handleOpenMenu} className="nav__checkbox" type="checkbox" id="nav-checkbox" />
 
                 {!openMenu ? (
-                    <label className="nav__checkbox_open" for="nav-checkbox">
-                        <span class="material-icons ">menu</span>
+                    <label className="nav__checkbox_open" htmlFor="nav-checkbox">
+                        <span className="material-icons ">menu</span>
                     </label>
                 ) : (
-                    <label className="nav__checkbox_close" for="nav-checkbox">
-                        <span class="material-icons ">close</span>
+                    <label className="nav__checkbox_close" htmlFor="nav-checkbox">
+                        <span className="material-icons ">close</span>
                     </label>
                 )}
 
                 <div className="nav__menu">
-                    <NavLink className="nav__menu__link" to="/">
+                    <NavLink onClick={handleNavClick} className="nav__menu__link" to="/">
                         Home
                     </NavLink>
-                    <NavLink className="nav__menu__link" to="/categories">
+
+                    <NavLink onClick={handleNavClick} className="nav__menu__link" to="/categories">
                         Categories
                     </NavLink>
-                    <NavLink className="nav__menu__link" to="/myshopping">
+
+                    <NavLink onClick={handleNavClick} className="nav__menu__link" to="/myshopping">
                         Shopping
                     </NavLink>
-                    <NavLink className="nav__menu__link" to={"/user"}>
+
+                    <NavLink onClick={handleNavClick} className="nav__menu__link" to={"/user"}>
                         {props.name}
                     </NavLink>
-                    <CartWidget />
+
+                    <CartWidget onClick={handleNavClick} />
+
+                    <SearchBar />
                 </div>
             </nav>
         );

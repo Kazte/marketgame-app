@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import Aside from "./Aside";
 import CartShop from "./CartShop";
 import Categories from "./Categories";
-import CategoriesListContainer from "./CategoriesListContainer";
 import Home from "./Home";
 import ItemDetailContainer from "./ItemDetailContainer";
 import ItemListContainer from "./ItemListContainer";

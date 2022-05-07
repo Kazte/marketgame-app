@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import CustomProvider from "./components/Context";
+import CustomProvider from "./components/CartContext";
 import { Toaster } from "react-hot-toast";
 
 import { BrowserRouter } from "react-router-dom";
