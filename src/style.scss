@@ -362,7 +362,6 @@ a {
     justify-content: center;
     align-items: center;
     gap: 1px;
-    background-color: $accenture-light;
 
     &__minus,
     &__plus {
@@ -382,8 +381,6 @@ a {
         user-select: none;
         margin: auto;
         padding: 5px;
-        // width: 100%;
-        // background-color: $primary-dark;
     }
 
     &__cartButton {
@@ -665,6 +662,19 @@ a {
         outline: none;
         background: none;
         font-size: 1.1rem;
-        color: $primary-text;
+    }
+}
+
+.customBtn {
+    margin: 0px;
+    padding: 5px;
+    border: 0px;
+    background-color: $accenture;
+    color: $primary-text;
+    outline: none;
+    font-size: 1.1rem;
+
+    &:hover {
+        background-color: $accenture-light;
     }
 }

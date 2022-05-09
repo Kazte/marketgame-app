@@ -1,17 +1,28 @@
 import CategoriesList from "./CategoriesList";
 import toast from "react-hot-toast";
 import ItemCount from "./ItemCount";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { cartContext } from "./CartContext";
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const ItemDetail = ({ item, categories }) => {
-    const { addProduct } = useContext(cartContext);
+    const [itemQuantity, setItemQuantity] = useState(undefined);
+
+    const { addItem } = useContext(cartContext);
+
+    const navigate = useNavigate();
 
     const addToCart = (stockAdded) => {
-        console.log(addProduct);
-        addProduct(item, stockAdded);
+        setItemQuantity(stockAdded);
+
+        addItem(item, stockAdded);
 
         toast(`${item.name} (${stockAdded}) added to cart!`);
+    };
+
+    const handleFinish = () => {
+        navigate("/cart");
     };
 
     if (item)
@@ -42,7 +53,7 @@ const ItemDetail = ({ item, categories }) => {
                         <section className="itemDetail__footer__buySection">
                             ${item.price}
                             {/* <AddCartButton addToCart={addToCart} /> */}
-                            <ItemCount itemStock={item.stock} onAdd={addToCart} />
+                            {itemQuantity === undefined ? <ItemCount itemStock={item.stock} onAdd={addToCart} /> : <Button text="Finish" onClick={handleFinish} />}
                         </section>
                     </div>
                 </footer>

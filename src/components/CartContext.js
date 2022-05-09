@@ -1,42 +1,49 @@
 import { useState, createContext } from "react";
 
 export const cartContext = createContext();
+
 const { Provider } = cartContext;
 
 const CustomProvider = ({ children }) => {
-    const [total, setTotal] = useState(0);
-    const [total_price, setTotal_price] = useState(0);
-    const [items, setItems] = useState([]);
+    const [cart, setCart] = useState([]);
 
-    const addProduct = (product, quantity) => {
-        if (!inCart(product)) {
-            setItems([...items, product]);
+    const addItem = (product, quantity) => {
+        if (isInCart(product.id)) {
+            const newCart = [...cart];
+
+            for (const element of newCart) {
+                if (element.item.id == product.id) {
+                    element.quantity += quantity;
+                }
+            }
+
+            setCart(newCart);
+        } else {
+            setCart([...cart, { item: product, quantity: quantity }]);
         }
-
-        setTotal(total + quantity);
-        setTotal_price(total_price + product.price * quantity);
     };
 
-    const removeProduct = (id) => {};
+    const removeItem = (id) => {};
 
     const clearCart = () => {
-        setItems([]);
+        setCart([]);
     };
 
-    const inCart = (product) => {
-        return items.includes(product);
+    const isInCart = (id) => {
+        return cart.find((e) => e.item.id == id);
     };
 
-    const contextValue = {
-        total,
-        total_price,
-        items,
-        addProduct,
-        removeProduct,
-        clearCart,
-        inCart,
+    const getTotalPrice = () => {
+        let total = 0;
+
+        for (const e of cart) {
+            total += e.item.price * e.quantity;
+        }
+
+        return total;
     };
-    return <Provider value={contextValue}>{children}</Provider>;
+
+    return <Provider value={{ cart, getTotalPrice, addItem, removeItem, clearCart }}>{children}</Provider>;
 };
 
 export default CustomProvider;

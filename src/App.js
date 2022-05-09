@@ -1,17 +1,17 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import CustomProvider from "./components/CartContext";
 import { Toaster } from "react-hot-toast";
 
 import { BrowserRouter } from "react-router-dom";
 
 import "./style.scss";
+import CustomProvider from "./components/CartContext";
 
 const App = () => {
     return (
-        <BrowserRouter>
-            <CustomProvider>
+        <CustomProvider>
+            <BrowserRouter>
                 <Header />
                 <Main />
                 <Footer />
@@ -33,8 +33,8 @@ const App = () => {
                         },
                     }}
                 />
-            </CustomProvider>
-        </BrowserRouter>
+            </BrowserRouter>
+        </CustomProvider>
     );
 };
 
