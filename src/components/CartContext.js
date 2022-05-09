@@ -43,7 +43,11 @@ const CustomProvider = ({ children }) => {
         return total;
     };
 
-    return <Provider value={{ cart, getTotalPrice, addItem, removeItem, clearCart }}>{children}</Provider>;
+    const getTotalQuantity = () => {
+        return cart.length;
+    };
+
+    return <Provider value={{ cart, getTotalPrice, getTotalQuantity, addItem, removeItem, clearCart }}>{children}</Provider>;
 };
 
 export default CustomProvider;
