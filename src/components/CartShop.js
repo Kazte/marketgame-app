@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { cartContext } from "./CartContext";
+import ShopListContainer from "./ShopListContainer";
 
 const CartShop = () => {
     const { getTotalPrice } = useContext(cartContext);
@@ -8,6 +9,7 @@ const CartShop = () => {
         <div>
             <h1>Cart Shop</h1>
             <h2>Total Price: ${getTotalPrice() || 0}</h2>
+            <ShopListContainer />
         </div>
     );
 };
