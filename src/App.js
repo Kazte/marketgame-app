@@ -1,12 +1,16 @@
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
-import { Toaster } from "react-hot-toast";
+import Header from "./components/Header"
+import Main from "./components/Main"
+import Footer from "./components/Footer"
+import { Toaster } from "react-hot-toast"
 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom"
 
-import "./style.scss";
-import CustomProvider from "./components/CartContext";
+import "./style.scss"
+import CustomProvider from "./components/CartContext"
+
+import { db } from "./Firebase"
+
+import { collection, getDocs, doc, addDoc } from "firebase/firestore"
 
 const App = () => {
     return (
@@ -35,7 +39,7 @@ const App = () => {
                 />
             </BrowserRouter>
         </CustomProvider>
-    );
-};
+    )
+}
 
-export default App;
+export default App

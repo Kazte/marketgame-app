@@ -1,25 +1,37 @@
-import CategoriesList from "./CategoriesList";
-import Loader from "./Loader";
+import CategoriesList from "./CategoriesList"
+import Loader from "./Loader"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+
+import { db } from "../Firebase"
+import { collection, query, where, getDoc, doc, getDocs, addDoc, orderBy, startAt, endAt } from "firebase/firestore"
 
 const CategoriesListContainer = () => {
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState(null)
 
     useEffect(() => {
-        setTimeout(() => {
-            fetch("/data.json")
-                .then((res) => res.json())
-                .then((json) => {
-                    setCategories(json.categories);
-                });
-        }, 500);
-    }, []);
-    if (categories.length === 0) {
-        return <Loader />;
-    } else {
-        return <CategoriesList categories={categories} />;
-    }
-};
+        const productsCollection = collection(db, "categories")
+        const query = getDocs(productsCollection)
 
-export default CategoriesListContainer;
+        query
+            .then((res) => {
+                const cats = res.docs.map((doc) => {
+                    const cat = {
+                        id: doc.id,
+                        ...doc.data(),
+                    }
+                    return cat
+                })
+
+                setCategories(cats)
+            })
+            .catch((err) => {
+                console.error(err)
+            })
+            .finally(() => {})
+    }, [])
+
+    return <>{categories === null ? <Loader /> : <CategoriesList categories={categories} />}</>
+}
+
+export default CategoriesListContainer

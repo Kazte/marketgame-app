@@ -1,29 +1,29 @@
-import CategoriesList from "./CategoriesList";
-import toast from "react-hot-toast";
-import ItemCount from "./ItemCount";
-import { useContext, useState } from "react";
-import { cartContext } from "./CartContext";
-import Button from "./Button";
-import { useNavigate } from "react-router-dom";
+import CategoriesList from "./CategoriesList"
+import toast from "react-hot-toast"
+import ItemCount from "./ItemCount"
+import { useContext, useState } from "react"
+import { cartContext } from "./CartContext"
+import Button from "./Button"
+import { useNavigate } from "react-router-dom"
 
-const ItemDetail = ({ item, categories }) => {
-    const [itemQuantity, setItemQuantity] = useState(undefined);
+const ItemDetail = ({ item }) => {
+    const [itemQuantity, setItemQuantity] = useState(undefined)
 
-    const { addItem } = useContext(cartContext);
+    const { addItem } = useContext(cartContext)
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const addToCart = (stockAdded) => {
-        setItemQuantity(stockAdded);
+        setItemQuantity(stockAdded)
 
-        addItem(item, stockAdded);
+        addItem(item, stockAdded)
 
-        toast(`${item.name} (${stockAdded}) added to cart!`);
-    };
+        toast(`${item.name} (${stockAdded}) added to cart!`)
+    }
 
     const handleFinish = () => {
-        navigate("/cart");
-    };
+        navigate("/cart")
+    }
 
     if (item)
         return (
@@ -40,7 +40,7 @@ const ItemDetail = ({ item, categories }) => {
                         <div className="itemDetail__main__description">
                             <div>{item.description}</div>
                             <div className="itemDetail__main__description__categoriesList">
-                                <CategoriesList categories={categories} />
+                                <CategoriesList categories={item.categories} />
                             </div>
                         </div>
                     </section>
@@ -58,7 +58,7 @@ const ItemDetail = ({ item, categories }) => {
                     </div>
                 </footer>
             </div>
-        );
-};
+        )
+}
 
-export default ItemDetail;
+export default ItemDetail

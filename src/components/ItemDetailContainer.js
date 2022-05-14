@@ -1,41 +1,44 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import Loader from "./Loader";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import ItemDetail from "./ItemDetail"
+import Loader from "./Loader"
+import { db } from "../Firebase"
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState(null);
-    const [categories, setCategories] = useState([]);
+    const [item, setItem] = useState(null)
 
-    const { gameId } = useParams();
+    const { gameId } = useParams()
 
     useEffect(() => {
-        setTimeout(() => {
-            fetch("/data.json")
-                .then((res) => res.json())
-                .then((json) => {
-                    const game = json.games.filter((x) => x.id == gameId)[0];
-                    const cat = json.categories;
+        // const productsCollection = collection(db, "products")
+        const productCollection = doc(db, "products", gameId)
 
-                    const gameCategories = [];
+        getDoc(productCollection).then((ds) => {
+            if (ds.exists()) {
+                const prod = {
+                    id: ds.id,
+                    ...ds.data(),
+                }
 
-                    cat.forEach((c) => {
-                        if (game.categories.includes(c.id)) {
-                            gameCategories.push(c);
-                        }
-                    });
+                const cats = [...prod.categories]
 
-                    setItem(game);
-                    setCategories(gameCategories);
-                });
-        }, 1000);
-    }, [gameId]);
+                prod.categories = []
+
+                cats.forEach((c, i) => {
+                    prod.categories.push({ id: i, name: c })
+                })
+
+                setItem(prod)
+            }
+        })
+    }, [gameId])
 
     if (item === null) {
-        return <Loader />;
+        return <Loader />
     } else {
-        return <ItemDetail item={item} categories={categories} />;
+        return <ItemDetail item={item} />
     }
-};
+}
 
-export default ItemDetailContainer;
+export default ItemDetailContainer

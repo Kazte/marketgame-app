@@ -1,17 +1,17 @@
-import ShopListItem from "./ShopListItem";
+import ShopListItem from "./ShopListItem"
 
 const ShopList = ({ items }) => {
     return (
         <div>
             <ul>
                 {items.map((i) => (
-                    <li>
-                        <ShopListItem key={i.item.id} item={i} />
+                    <li key={i.item.id}>
+                        <ShopListItem item={i} />
                     </li>
                 ))}
             </ul>
         </div>
-    );
-};
+    )
+}
 
-export default ShopList;
+export default ShopList

@@ -15,9 +15,7 @@ const Presentational = () => {
 
     const [dark, setDark] = useState(false)
 
-    useEffect(() => {
-        console.log("NuevoRender")
-    }, [])
+    useEffect(() => {}, [])
 
     const toggleDark = () => {
         setDark(!dark)
@@ -28,12 +26,7 @@ const Presentational = () => {
             <p>Contador actual: {counter}</p>
             <p>Modo dark: {dark ? "true" : "false"}</p>
             <button onClick={handleClick}>Click</button>
-            <input
-                onClick={toggleDark}
-                type="checkbox"
-                name="darkTheme"
-                id="darkThemeCheckbox"
-            />
+            <input onClick={toggleDark} type="checkbox" name="darkTheme" id="darkThemeCheckbox" />
         </div>
     )
 }

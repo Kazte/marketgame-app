@@ -1,57 +1,99 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 
-import ItemList from "./ItemList";
-import Loader from "./Loader";
+import ItemList from "./ItemList"
+import Loader from "./Loader"
+
+import { db } from "../Firebase"
+
+import { collection, query, where, getDoc, doc, getDocs, addDoc, orderBy, startAt, endAt } from "firebase/firestore"
 
 const ItemListContainer = () => {
-    const [items, setItems] = useState(null);
+    const [items, setItems] = useState(null)
 
-    const [category, setCategory] = useState(undefined);
-
-    const { categoryId, searchText } = useParams();
+    const { categoryId: categoryName, searchText } = useParams()
 
     useEffect(() => {
-        setItems(null);
-        setTimeout(() => {
-            fetch("/data.json")
-                .then((res) => res.json())
-                .then((json) => {
-                    const games = json.games;
+        if (categoryName === undefined) {
+            if (searchText === undefined) {
+                const productsCollection = collection(db, "products")
+                const query = getDocs(productsCollection)
 
-                    if (categoryId === undefined) {
-                        if (searchText === undefined) {
-                            setItems(games);
-                        } else {
-                            setItems(games.filter((g) => g.name.toLowerCase().includes(searchText.toLowerCase())));
-                        }
-                    } else {
-                        const categories = json.categories.filter((x) => x.id === parseInt(categoryId));
-                        setItems(games.filter((g) => g.categories.includes(parseInt(categoryId))));
-                        setCategory(categories);
+                query
+                    .then((res) => {
+                        const products = res.docs.map((doc) => {
+                            const prod = {
+                                id: doc.id,
+                                ...doc.data(),
+                            }
+                            return prod
+                        })
+                        setItems(products)
+                    })
+                    .catch((err) => {
+                        console.error(err)
+                    })
+                    .finally(() => {})
+            } else {
+                const searchString = searchText.toLowerCase()
+                const productsCollection = collection(db, "products")
+                const query = getDocs(productsCollection)
+
+                query
+                    .then((res) => {
+                        const docs = res.docs.filter((d) => d.data().name.toLowerCase().includes(searchString))
+
+                        const products = docs.map((doc) => {
+                            const prod = {
+                                id: doc.id,
+                                ...doc.data(),
+                            }
+                            return prod
+                        })
+
+                        setItems(products)
+                    })
+                    .catch((err) => {
+                        console.error(err)
+                    })
+                    .finally(() => {})
+            }
+        } else {
+            const productsCollection = collection(db, "products")
+
+            const q = query(productsCollection, where("categories", "array-contains", categoryName))
+
+            getDocs(q).then((qs) => {
+                const prod = qs.docs.map((doc) => {
+                    return {
+                        id: doc.id,
+                        ...doc.data(),
                     }
-                });
-        }, 2000);
-    }, [categoryId, searchText]);
+                })
+
+                setItems(prod)
+            })
+        }
+    }, [categoryName, searchText])
 
     if (items === null) {
-        return <Loader />;
+        return <Loader />
     } else {
-        if (categoryId === undefined) {
+        if (categoryName === undefined) {
             return (
                 <>
                     <ItemList items={items} />
                 </>
-            );
+            )
         } else {
             return (
                 <>
-                    <h1 className="title">{category.name}</h1>
+                    <h1 className="title">{categoryName}</h1>
                     <ItemList items={items} />
                 </>
-            );
+            )
         }
     }
-};
+}
 
-export default ItemListContainer;
+export default ItemListContainer
