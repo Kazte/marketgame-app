@@ -4,7 +4,7 @@ import Loader from "./Loader"
 import { useState, useEffect } from "react"
 
 import { db } from "../Firebase"
-import { collection, query, where, getDoc, doc, getDocs, addDoc, orderBy, startAt, endAt } from "firebase/firestore"
+import { collection, getDocs } from "firebase/firestore"
 
 const CategoriesListContainer = () => {
     const [categories, setCategories] = useState(null)

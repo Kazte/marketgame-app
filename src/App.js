@@ -8,10 +8,6 @@ import { BrowserRouter } from "react-router-dom"
 import "./style.scss"
 import CustomProvider from "./components/CartContext"
 
-import { db } from "./Firebase"
-
-import { collection, getDocs, doc, addDoc } from "firebase/firestore"
-
 const App = () => {
     return (
         <CustomProvider>

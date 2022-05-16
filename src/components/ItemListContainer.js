@@ -6,7 +6,7 @@ import Loader from "./Loader"
 
 import { db } from "../Firebase"
 
-import { collection, query, where, getDoc, doc, getDocs, addDoc, orderBy, startAt, endAt } from "firebase/firestore"
+import { collection, query, where, getDocs } from "firebase/firestore"
 
 const ItemListContainer = () => {
     const [items, setItems] = useState(null)
