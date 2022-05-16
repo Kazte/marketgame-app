@@ -1,10 +1,14 @@
-const ShopListItem = ({ item }) => {
+import Button from "./Button"
+
+const ShopListItem = ({ item, handleDeleteItem }) => {
     return (
-        <>
-            <p>Name: {item.item.name}</p>
-            <p>${item.item.price}</p>
-            <p>Quantity: {item.quantity}</p>
-        </>
+        <div className="shopItem">
+            <p className="shopItem__title">{item.item.name}</p>
+            <img className="shopItem__cover" src={item.item.cover} alt={`${item.item.name} cover`} />
+            <p className="shopItem__price">${item.item.price}</p>
+            <p className="shopItem__quantity">Quantity: {item.quantity}</p>
+            <Button onClick={() => handleDeleteItem(item)} text="Delete" />
+        </div>
     )
 }
 

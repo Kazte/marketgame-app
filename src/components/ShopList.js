@@ -1,12 +1,20 @@
 import ShopListItem from "./ShopListItem"
+import { useContext } from "react"
+import { cartContext } from "./CartContext"
 
 const ShopList = ({ items }) => {
+    const { removeItem } = useContext(cartContext)
+
+    const handleDeleteItem = (item) => {
+        removeItem(item.item.id)
+    }
+
     return (
-        <div>
+        <div className="shopList">
             <ul>
                 {items.map((i) => (
                     <li key={i.item.id}>
-                        <ShopListItem item={i} />
+                        <ShopListItem item={i} handleDeleteItem={handleDeleteItem} />
                     </li>
                 ))}
             </ul>

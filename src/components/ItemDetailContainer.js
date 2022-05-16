@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
 import Loader from "./Loader"
 import { db } from "../Firebase"
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"
+import { doc, getDoc } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState(null)
