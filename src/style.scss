@@ -683,6 +683,21 @@ a {
     justify-content: center;
     align-items: center;
     gap: 16px;
+
+    max-width: 940px;
+    min-width: 500px;
+    margin: auto;
+
+    &__buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+
+        & > * {
+            max-width: 500px;
+            min-width: 100px;
+        }
+    }
 }
 
 .shopList {
@@ -697,22 +712,29 @@ a {
 
     & > ul > li {
         margin-bottom: 16px;
+        background-color: $primary;
+        padding: 5px;
     }
 }
 
 .shopItem {
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 0.25fr 0.5fr 0.5fr;
 
     justify-content: center;
     align-items: center;
 
+    color: $primary-text;
+    font-size: 1.2rem;
+
+    height: 50%;
     & > p {
         text-align: center;
     }
 
     &__cover {
-        max-width: 100%;
+        max-width: 60%;
+        margin: auto;
     }
 }

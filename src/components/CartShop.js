@@ -5,9 +5,10 @@ import ShopListContainer from "./ShopListContainer"
 import { db } from "../Firebase"
 import Button from "./Button"
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 
 const CartShop = () => {
-    const { getTotalPrice, getTotalQuantity } = useContext(cartContext)
+    const { getTotalPrice, getTotalQuantity, clearCart } = useContext(cartContext)
 
     const navigate = useNavigate()
 
@@ -15,13 +16,23 @@ const CartShop = () => {
         navigate("/")
     }
 
+    const handleClearCart = () => {
+        clearCart()
+        toast(`Deleted all items in the cart!`)
+    }
+
     return (
         <div className="cartShop">
             {getTotalQuantity() > 0 ? (
                 <>
                     <h1>Cart Shop</h1>
-                    <h2>Total Price: ${getTotalPrice() || 0}</h2>
+
                     <ShopListContainer />
+                    <div className="cartShop__buttons">
+                        <Button onClick={handleClearCart} text="Clear Cart" />
+                        <h2>Total Price: ${getTotalPrice() || 0}</h2>
+                        <Button text="Buy" />
+                    </div>
                 </>
             ) : (
                 <>

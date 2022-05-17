@@ -1,6 +1,7 @@
 import ShopListItem from "./ShopListItem"
 import { useContext } from "react"
 import { cartContext } from "./CartContext"
+import Button from "./Button"
 
 const ShopList = ({ items }) => {
     const { removeItem } = useContext(cartContext)
