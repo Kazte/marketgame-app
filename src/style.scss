@@ -40,7 +40,7 @@ a {
 }
 
 #root > main {
-    flex-grow: 1;
+    // flex-grow: 1;
 }
 
 #root > header {
@@ -423,7 +423,6 @@ a {
     flex-flow: column;
     gap: 12px;
     margin: auto;
-    flex-grow: 1;
     &__spinner {
         border: 4px solid rgba(0, 0, 0, 0.1);
         width: 36px;
@@ -450,7 +449,7 @@ a {
     margin: 10px auto;
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     &__title {
