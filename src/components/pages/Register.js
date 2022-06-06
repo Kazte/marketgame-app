@@ -23,26 +23,24 @@ const Register = () => {
     return (
         <div className="register">
             <form className="register__form" onSubmit={handleRegisterSubmit}>
-                <div>
-                    <label htmlFor="register_user">User</label>
-                    <input type="text" name="register_user" />
-                </div>
+                <label htmlFor="register_user" class="input">
+                    <input type="text" name="register_user" id="register_user" placeholder="&nbsp;" />
+                    <span className="label">User</span>
+                </label>
 
-                <div>
-                    <label htmlFor="register_email">Email</label>
-                    <input type="email" name="register_email" />
-                </div>
+                <label htmlFor="register_email" class="input">
+                    <input type="email" name="register_email" id="register_email" placeholder="&nbsp;" />
+                    <span className="label">Email</span>
+                </label>
 
-                <div>
-                    <label htmlFor="register_password">Password</label>
-                    <input type="password" name="register_password" />
-                </div>
+                <label htmlFor="register_password" class="input">
+                    <input type="password" name="register_password" id="register_password" placeholder="&nbsp;" />
+                    <span className="label">Password</span>
+                </label>
 
-                <div>
-                    <button className="customBtn button" type="submit">
-                        Register
-                    </button>
-                </div>
+                <button className="customBtn button" type="submit">
+                    Register
+                </button>
             </form>
         </div>
     )

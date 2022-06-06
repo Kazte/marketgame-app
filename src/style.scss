@@ -39,10 +39,6 @@ a {
     padding: 1rem;
 }
 
-#root > main {
-    // flex-grow: 1;
-}
-
 #root > header {
     background-color: $primary;
     display: flex;
@@ -739,9 +735,9 @@ a {
 .user {
     display: flex;
     flex-flow: column;
-    max-width: 300px;
-    max-height: 300px;
-    margin: auto;
+    max-width: 940px;
+    min-width: 500px;
+    margin: 10px auto;
     gap: 16px;
 }
 
@@ -763,5 +759,70 @@ a {
     &__cover {
         max-width: 80%;
         margin: auto;
+    }
+}
+
+.input {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    overflow: hidden;
+
+    .label {
+        position: absolute;
+        top: 20px;
+        left: 12px;
+        font-size: 16px;
+        color: rgba($primary-dark, 0.5);
+        font-weight: 500;
+        transform-origin: 0 0;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.2s ease;
+        pointer-events: none;
+    }
+
+    input {
+        -webkit-appearance: none;
+        appearance: none;
+        background: rgba($primary-dark, 0.02);
+        border: 0;
+        box-shadow: inset 0 -1px 0 rgba($primary-dark, 0.3);
+        color: $primary-dark;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 400;
+        height: 56px;
+        padding: 16px 12px 16px 12px;
+        transition: all 0.15s ease;
+        width: 100%;
+
+        &:hover {
+            border-bottom: 1px solid $primary-dark;
+        }
+
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid $primary-dark;
+        }
+
+        &:not(:placeholder-shown) + .label {
+            display: none;
+        }
+    }
+}
+
+.login,
+.register {
+    &__form {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        max-width: 940px;
+        min-width: 500px;
+        margin: 10px auto;
     }
 }

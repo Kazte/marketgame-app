@@ -5,9 +5,9 @@ const ShoppingList = ({ items }) => {
         <>
             <div className="shopList">
                 <ul>
-                    {items.map((i) => {
+                    {items.map((i, index) => {
                         return (
-                            <li>
+                            <li key={index}>
                                 <ShoppingItem item={i} />
                             </li>
                         )

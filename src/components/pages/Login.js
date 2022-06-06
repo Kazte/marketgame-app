@@ -22,21 +22,19 @@ const Login = () => {
     return (
         <div className="login">
             <form className="login__form" onSubmit={handleLoginSubmit}>
-                <div>
-                    <label htmlFor="login_email">Email</label>
-                    <input type="email" name="login_email" />
-                </div>
+                <label htmlFor="login_email" class="input">
+                    <input type="text" name="login_email" id="login_email" placeholder="&nbsp;" />
+                    <span className="label">Email</span>
+                </label>
 
-                <div>
-                    <label htmlFor="login_password">Password</label>
-                    <input type="password" name="login_password" />
-                </div>
+                <label htmlFor="login_password" class="input">
+                    <input type="password" name="login_password" id="login_password" placeholder="&nbsp;" />
+                    <span className="label">Password</span>
+                </label>
 
-                <div>
-                    <button className="customBtn button" type="submit">
-                        Login
-                    </button>
-                </div>
+                <button className="customBtn button" type="submit">
+                    Login
+                </button>
             </form>
         </div>
     )

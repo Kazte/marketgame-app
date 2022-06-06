@@ -1,4 +1,4 @@
-import { collection, getDocs, where } from "firebase/firestore"
+import { collection, query, getDocs, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import ShoppingList from "./ShoppingList"
 import { db } from "../Firebase"
@@ -19,12 +19,11 @@ const ShoppingListContainer = () => {
 
     useEffect(() => {
         if (!auth.user) return
-
         const ordersCollection = collection(db, "orders")
 
-        const query = getDocs(ordersCollection, where("buyer_id", "==", auth.user.uid))
+        const q = query(ordersCollection, where("buyer_uid", "==", auth.user.uid))
 
-        query.then((res) => {
+        getDocs(q).then((res) => {
             const orders = res.docs.map((doc) => {
                 let items = {
                     id: doc.id,
@@ -36,15 +35,34 @@ const ShoppingListContainer = () => {
 
             let items = []
 
-            orders.forEach((order) => {
-                order.items.forEach((e) => {
+            for (let i = 0; i < orders.length; i++) {
+                const order = orders[i]
+
+                for (let j = 0; j < order.items.length; j++) {
+                    const e = order.items[j]
+
+                    if (items.find((x) => x.name === e.item.name)) {
+                        continue
+                    }
+
                     items.push(e.item)
-                })
-            })
+                }
+            }
+
+            // orders.forEach((order) => {
+            //     order.items.forEach((e) => {
+            //         console.log(e.item)
+
+            //         if (item) {
+            //         }
+
+            //         items.push(e.item)
+            //     })
+            // })
 
             setItems(items)
         })
-    }, [auth.user])
+    }, [])
 
     return (
         <>
