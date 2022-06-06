@@ -1,17 +1,20 @@
 import { useContext, useState } from "react"
-import { cartContext } from "./CartContext"
-import ShopListContainer from "./ShopListContainer"
+import { cartContext } from "./../CartContext"
+import ShopListContainer from "./../ShopListContainer"
 
-import { db } from "../Firebase"
-import Button from "./Button"
+import { db } from "../../Firebase"
+import Button from "./../Button"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 import { addDoc, collection } from "firebase/firestore"
+import { useAuth } from "../AuthContext"
 
 const CartShop = () => {
     const { getTotalPrice, getTotalQuantity, clearCart, cart } = useContext(cartContext)
 
     const [order, setOrder] = useState(null)
+
+    const auth = useAuth()
 
     const navigate = useNavigate()
 
@@ -35,23 +38,17 @@ const CartShop = () => {
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
 
         const order = {
-            buyer: {
-                name: "Franco",
-                phone: "+541158974514",
-                email: "pepeelcapo@gmail.com",
-            },
+            buyer_uid: auth.user.uid,
             items: cart,
             date: date + " " + time,
             total: getTotalPrice(),
         }
         const query = addDoc(ordersCollection, order)
 
-        query
-            .then((res) => {
-                clearCart()
-                setOrder({ id: res.id, ...order })
-            })
-            .catch((err) => console.error(err))
+        query.then((res) => {
+            clearCart()
+            setOrder({ id: res.id, ...order })
+        })
     }
 
     return (

@@ -5,6 +5,7 @@ import { useContext, useState } from "react"
 import { cartContext } from "./CartContext"
 import Button from "./Button"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "./AuthContext"
 
 const ItemDetail = ({ item }) => {
     const [itemQuantity, setItemQuantity] = useState(undefined)
@@ -12,6 +13,8 @@ const ItemDetail = ({ item }) => {
     const { addItem } = useContext(cartContext)
 
     const navigate = useNavigate()
+
+    const auth = useAuth()
 
     const addToCart = (stockAdded) => {
         setItemQuantity(stockAdded)
@@ -51,9 +54,8 @@ const ItemDetail = ({ item }) => {
                             <h4>Buy {item.name}</h4>
                         </section>
                         <section className="itemDetail__footer__buySection">
-                            ${item.price}
-                            {/* <AddCartButton addToCart={addToCart} /> */}
-                            {itemQuantity === undefined ? <ItemCount itemStock={item.stock} onAdd={addToCart} /> : <Button text="Finish" onClick={handleFinish} />}
+                            <h4>${item.price}</h4>
+                            {auth.user ? <>{itemQuantity === undefined ? <ItemCount itemStock={item.stock} onAdd={addToCart} /> : <Button text="Finish" onClick={handleFinish} />}</> : <></>}
                         </section>
                     </div>
                 </footer>

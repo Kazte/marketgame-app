@@ -1,4 +1,3 @@
-import Aside from "./Aside"
 import ItemListContainer from "./ItemListContainer"
 
 const Home = () => {
@@ -6,7 +5,6 @@ const Home = () => {
         <>
             <h1 className="main__title">Games</h1>
             <section className="main__games">
-                {/* <<Aside /> */}
                 <ItemListContainer />
             </section>
         </>

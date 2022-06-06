@@ -13,22 +13,17 @@ const CategoriesListContainer = () => {
         const productsCollection = collection(db, "categories")
         const query = getDocs(productsCollection)
 
-        query
-            .then((res) => {
-                const cats = res.docs.map((doc) => {
-                    const cat = {
-                        id: doc.id,
-                        ...doc.data(),
-                    }
-                    return cat
-                })
+        query.then((res) => {
+            const cats = res.docs.map((doc) => {
+                const cat = {
+                    id: doc.id,
+                    ...doc.data(),
+                }
+                return cat
+            })
 
-                setCategories(cats)
-            })
-            .catch((err) => {
-                console.error(err)
-            })
-            .finally(() => {})
+            setCategories(cats)
+        })
     }, [])
 
     return <>{categories === null ? <Loader /> : <CategoriesList categories={categories} />}</>

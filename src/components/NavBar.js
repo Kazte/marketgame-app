@@ -1,9 +1,13 @@
-import CartWidget from "./CartWidget";
+import CartWidget from "./CartWidget"
 
-import { NavLink, Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import { NavLink, Link } from "react-router-dom"
+import SearchBar from "./SearchBar"
+import { useAuth } from "./AuthContext"
+import { useEffect } from "react"
 
 const NavBar = (props) => {
+    const auth = useAuth()
+
     if (props.footer) {
         return (
             <nav className="nav">
@@ -13,11 +17,8 @@ const NavBar = (props) => {
                 <Link className="nav__link_basic" to="/categories">
                     Categories
                 </Link>
-                <Link className="nav__link_basic" to="/myshopping">
-                    Shopping
-                </Link>
             </nav>
-        );
+        )
     } else {
         return (
             <nav className="nav">
@@ -30,21 +31,32 @@ const NavBar = (props) => {
                         Categories
                     </NavLink>
 
-                    <NavLink className="nav__menu__link" to="/myshopping">
-                        Shopping
-                    </NavLink>
-
-                    <NavLink className="nav__menu__link" to={"/user"}>
-                        {props.name}
-                    </NavLink>
-
-                    <CartWidget />
+                    {auth.user ? (
+                        <>
+                            <NavLink className="nav__menu__link" to="/myshopping">
+                                Shopping
+                            </NavLink>
+                            <NavLink className="nav__menu__link" to={"/user"}>
+                                Profile
+                            </NavLink>
+                            <CartWidget />
+                        </>
+                    ) : (
+                        <>
+                            <NavLink className="nav__menu__link" to="/login">
+                                Log In
+                            </NavLink>
+                            <NavLink className="nav__menu__link" to="/register">
+                                Register
+                            </NavLink>
+                        </>
+                    )}
 
                     <SearchBar />
                 </div>
             </nav>
-        );
+        )
     }
-};
+}
 
-export default NavBar;
+export default NavBar

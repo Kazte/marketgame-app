@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import ItemDetail from "./ItemDetail"
-import Loader from "./Loader"
-import { db } from "./../Firebase"
+import ItemDetail from "./../ItemDetail"
+import Loader from "./../Loader"
+import { db } from "./../../Firebase"
 import { doc, getDoc } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
@@ -34,11 +34,7 @@ const ItemDetailContainer = () => {
         })
     }, [gameId])
 
-    if (item === null) {
-        return <Loader />
-    } else {
-        return <ItemDetail item={item} />
-    }
+    return <>{item ? <ItemDetail item={item} /> : <Loader />} </>
 }
 
 export default ItemDetailContainer

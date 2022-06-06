@@ -719,7 +719,36 @@ a {
 .shopItem {
     display: grid;
 
-    grid-template-columns: 1fr 1fr 0.25fr 0.5fr 0.5fr;
+    grid-template-columns: 0.5fr 1fr 0.25fr 0.25fr 0.5fr;
+
+    justify-content: center;
+    align-items: center;
+
+    color: $primary-text;
+    font-size: 1.2rem;
+    & > p {
+        text-align: center;
+    }
+
+    &__cover {
+        max-width: 80%;
+        margin: auto;
+    }
+}
+
+.user {
+    display: flex;
+    flex-flow: column;
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
+    gap: 16px;
+}
+
+.shoppingItem {
+    display: grid;
+
+    grid-template-columns: 0.5fr 1fr 1.25fr;
 
     justify-content: center;
     align-items: center;
@@ -727,13 +756,12 @@ a {
     color: $primary-text;
     font-size: 1.2rem;
 
-    height: 50%;
     & > p {
         text-align: center;
     }
 
     &__cover {
-        max-width: 60%;
+        max-width: 80%;
         margin: auto;
     }
 }

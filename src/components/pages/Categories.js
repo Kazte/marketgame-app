@@ -1,4 +1,4 @@
-import CategoriesListContainer from "./CategoriesListContainer"
+import CategoriesListContainer from "./../CategoriesListContainer"
 
 const Categories = () => {
     return (

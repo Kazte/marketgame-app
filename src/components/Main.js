@@ -1,11 +1,13 @@
-import { Route, Routes } from "react-router-dom";
-import CartShop from "./CartShop";
-import Categories from "./Categories";
-import Home from "./Home";
-import ItemDetailContainer from "./ItemDetailContainer";
-import ItemListContainer from "./ItemListContainer";
-import User from "./User";
-import Shoppings from "./Shoppings";
+import { Route, Routes } from "react-router-dom"
+import CartShop from "./pages/CartShop"
+import Categories from "./pages/Categories"
+import Home from "./pages/Home"
+import ItemDetailContainer from "./pages/ItemDetailContainer"
+import ItemListContainer from "./pages/ItemListContainer"
+import User from "./pages/User"
+import Shoppings from "./pages/Shoppings"
+import Register from "./pages/Register"
+import Login from "./pages/Login"
 
 const Main = () => {
     return (
@@ -19,9 +21,11 @@ const Main = () => {
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/user" element={<User />} />
                 <Route path="/search/:searchText" element={<ItemListContainer />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
         </main>
-    );
-};
+    )
+}
 
-export default Main;
+export default Main
