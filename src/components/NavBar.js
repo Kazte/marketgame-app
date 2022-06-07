@@ -3,7 +3,6 @@ import CartWidget from "./CartWidget"
 import { NavLink, Link } from "react-router-dom"
 import SearchBar from "./SearchBar"
 import { useAuth } from "./AuthContext"
-import { useEffect } from "react"
 
 const NavBar = (props) => {
     const auth = useAuth()
